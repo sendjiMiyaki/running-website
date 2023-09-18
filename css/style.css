@@ -9,9 +9,9 @@
 }
 
 body {
-  /* TODO 1 https://www.w3schools.com/cssref/pr_font_font-family.php */
-  background: #000;
-  /* TODO 2 https://www.w3schools.com/cssref/pr_text_color.php */
+  font-family: Arial, Helvetica, sans-serif;
+  background: #000000;
+  color: #fff;
 }
 
 a {
@@ -20,22 +20,18 @@ a {
 }
 
 ul {
-  /* TODO 3 https://www.w3schools.com/cssref/pr_list-style-type.php */
+  list-style-type: none;
 }
 
 /* Header/Navbar */
 .main-header {
+  font-family: Arial, Helvetica, sans-serif;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 3;
-
-  /* 
-  Madani
-  faire une vidéo d'explication sur flex et justify-contentles en utilisant W3school */
-  /* TODO 4 https://www.w3schools.com/css/css3_flexbox.asp */
-  /* TODO 5 https://www.w3schools.com/cssref/css3_pr_justify-content.php */
+  display: flex;
 
   align-items: center;
   text-transform: uppercase;
@@ -45,7 +41,7 @@ ul {
 
 /* Logo */
 .logo {
-    /* TODO 6 https://www.w3schools.com/cssref/pr_dim_width.php */
+    width: 20%;
     height: auto; 
 }
 
@@ -61,10 +57,14 @@ ul {
 }
 
 .desktop-main-menu ul {
- /* TODO 7 https://www.w3schools.com/css/css3_flexbox.asp  */
+  display: flex; /* Définir le conteneur ul comme une flexbox */
+  position: absolute; /* pour placer en haut à droite*/
+  left: 1000px; /*valeurs qui permettent de positionner correctement*/
+  top: 40px;
 }
 
 .desktop-main-menu ul li {
+  display : flexbox;
   position: relative;
   margin-right: 20px;
   padding-bottom: 2px;
@@ -97,7 +97,9 @@ section {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-   /* TODO 7 https://www.w3schools.com/cssref/pr_text_text-transform.php  */
+  text-transform: uppercase;
+
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .section-inner {
@@ -129,13 +131,20 @@ section {
 
 /* Background images */
 .section-a {
- /* TODO 8 https://www.w3schools.com/cssref/pr_background-image.php */
+ background-image: url("../img/section-a.webp");
 }
 
 .section-b {
   background-image: url('../img/section-d.webp');
 }
 
+.hover span{
+  border: 3px solid white; /*faire l'encardrer*/
+  padding-left: 40px; /*espace à gauche entre encadrer et le texte*/
+  padding-right: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 
 .btn {
   position: relative;
@@ -178,6 +187,7 @@ section {
 footer {
   position: relative;
   padding: 55px 0;
+  background-color: #555;
 }
 
 footer ul {
@@ -193,6 +203,10 @@ footer ul li {
   text-transform: uppercase;
   font-size: 13px;
   line-height: 2.5;
+  background-color: #c6c6c6 ;
+  padding: 20px; /*espace extérieur elt*/
+  margin: 0px; /*pour coller les 4elt du footer --> espace intérieur elt
+  */
 }
 
 footer ul li a {
