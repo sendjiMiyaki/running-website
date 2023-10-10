@@ -68,6 +68,10 @@ let email = document.getElementById("email");
 let mdp = document.getElementById("mdp");
 let message = document.getElementById("message");
 
+let maj = /[A-Z]/; // toutes les lettres de l'alphabet en majuscules ascii
+let special = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/; // Tous les caractères spécial possible à mettre dans un mot de passe
+
+
 /*selectionner la case à cocher et le texte à côté*/
 let cocher = document.getElementById('formCheck-1');
 let age = document.querySelector('label[for="formCheck-1"]');
@@ -89,7 +93,7 @@ function verifierFormulaire() {
     }
     
     /*condition : si email.value contient "@"*/
-    if (email.value === "" || !email.value.includes("@")) {
+    if (email.value === "" || !email.value.includes(special)) {
       email.style.borderColor = "red";
     } else if (email.value.includes("@")) {
       email.style.borderColor = "green";
@@ -99,7 +103,8 @@ function verifierFormulaire() {
     if (mdp.value === "" || mdp.value.length < 8) {
       mdp.style.borderColor = "red";
       messageErreur.classList.remove("invisible");
-    } else if (mdp.value.length >= 8) {
+      //si mdp.value > 8 ET mdp.value a un valieur de la variable maj ET mdp.value a un valieur de la variable special
+    } else if (mdp.value.length >= 8 && maj.test(mdp.value) && special.test(mdp.value)) { //variable1.test(variable2) fonctionne comme un booléen
       mdp.style.borderColor = "green";
       messageErreur.classList.add("invisible");
     }
@@ -123,7 +128,7 @@ function verifierFormulaire() {
 
 function verifierFormulaire2() {
     /*condition : si email.value contient "@"*/
-    if (email.value === "" || !email.value.includes("@")) {
+    if (email.value === "" || !email.value.includes(special)) {
       email.style.borderColor = "red";
     } else if (email.value.includes("@")) {
       email.style.borderColor = "green";
@@ -133,7 +138,8 @@ function verifierFormulaire2() {
     if (mdp.value === "" || mdp.value.length < 8) {
       mdp.style.borderColor = "red";
       messageErreur.classList.remove("invisible");
-    } else if (mdp.value.length >= 8) {
+      //si mdp.value > 8 ET mdp.value a un valieur de la variable maj ET mdp.value a un valieur de la variable special
+    } else if (mdp.value.length >= 8 && maj.test(mdp.value) && special.test(mdp.value)) { //variable1.test(variable2) fonctionne comme un booléen
       mdp.style.borderColor = "green";
       messageErreur.classList.add("invisible");
     }
