@@ -117,6 +117,8 @@ function verifierFormulaire() {
     }
 }
 
+
+
 /******************************FORMULAIRE SIGN IN -> ("email2" & "mdp2")**************************************/
 
 function verifierFormulaire2() {
