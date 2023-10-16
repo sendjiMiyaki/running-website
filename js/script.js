@@ -60,17 +60,15 @@ function reset() {
 
 /******************************FORMULAIRE SIGN UP**************************************/
 
-/*champs à remplir*/
-
 let prenom = document.getElementById("prenom");
 let nom = document.getElementById("nom");
 let email = document.getElementById("email");
 let mdp = document.getElementById("mdp");
 let message = document.getElementById("message");
 
-let maj = /[A-Z]/; // toutes les lettres de l'alphabet en majuscules ascii
-let special = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/; // Tous les caractères spécial possible à mettre dans un mot de passe
-
+/*email et mdp conditions*/
+let maj = /[A-Z]/; //alphabet en majuscule
+let special = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/; //tous les caractères spéciaux
 
 /*selectionner la case à cocher et le texte à côté*/
 let cocher = document.getElementById('formCheck-1');
@@ -93,18 +91,17 @@ function verifierFormulaire() {
     }
     
     /*condition : si email.value contient "@"*/
-    if (email.value === "" || !email.value.includes(special)) {
+    if (email.value === "" || !email.value.includes("@")) {
       email.style.borderColor = "red";
     } else if (email.value.includes("@")) {
       email.style.borderColor = "green";
     }
 
-    /*condition : mdp > 8 caractères sinon affichage de "text-danger invisible"*/
-    if (mdp.value === "" || mdp.value.length < 8) {
+    /*condition : mdp > 8 caractères, une majuscule et un caractère spécial sinon affichage de "text-danger invisible"*/
+    if (mdp.value === "" || mdp.value.length < 8 || !mdp.value.match(special) || !mdp.value.match(maj)) {
       mdp.style.borderColor = "red";
       messageErreur.classList.remove("invisible");
-      //si mdp.value > 8 ET mdp.value a un valieur de la variable maj ET mdp.value a un valieur de la variable special
-    } else if (mdp.value.length >= 8 && maj.test(mdp.value) && special.test(mdp.value)) { //variable1.test(variable2) fonctionne comme un booléen
+    } else if (mdp.value.length >= 8 && mdp.value.match(special) && mdp.value.match(maj)) {
       mdp.style.borderColor = "green";
       messageErreur.classList.add("invisible");
     }
@@ -122,24 +119,21 @@ function verifierFormulaire() {
     }
 }
 
-
-
 /******************************FORMULAIRE SIGN IN -> ("email2" & "mdp2")**************************************/
 
 function verifierFormulaire2() {
     /*condition : si email.value contient "@"*/
-    if (email.value === "" || !email.value.includes(special)) {
+    if (email.value === "" || !email.value.includes("@")) {
       email.style.borderColor = "red";
     } else if (email.value.includes("@")) {
       email.style.borderColor = "green";
     }
 
-    /*condition : mdp > 8 caractères sinon affichage de "text-danger invisible"*/
-    if (mdp.value === "" || mdp.value.length < 8) {
+    /*condition : mdp > 8 caractères, une majuscule et un caractère spécial sinon affichage de "text-danger invisible"*/
+    if (mdp.value === "" || mdp.value.length < 8 || !mdp.value.match(special) || !mdp.value.match(maj)) {
       mdp.style.borderColor = "red";
       messageErreur.classList.remove("invisible");
-      //si mdp.value > 8 ET mdp.value a un valieur de la variable maj ET mdp.value a un valieur de la variable special
-    } else if (mdp.value.length >= 8 && maj.test(mdp.value) && special.test(mdp.value)) { //variable1.test(variable2) fonctionne comme un booléen
+    } else if (mdp.value.length >= 8 && mdp.value.match(special) && mdp.value.match(maj)) {
       mdp.style.borderColor = "green";
       messageErreur.classList.add("invisible");
     }

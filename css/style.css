@@ -65,8 +65,8 @@ ul {
 
 .desktop-main-menu ul li {
   position: relative;
-  margin-right: 20px;
-  padding-bottom: 2px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 /* Menu item bottom border */
@@ -101,7 +101,7 @@ section {
 
 .section-inner {
   position: absolute;
-  bottom: 200px;
+  top: 300px;
   left: 150px;
   max-width: 560px;
   padding: 2em;
@@ -127,6 +127,14 @@ section {
 .section-inner a {
   animation: fadeInUp 0.5s ease-in-out 0.4s;
   animation-fill-mode: both; /* Stop from showing at start*/
+}
+
+.hover span {
+  font-family: sans-serif;
+  color: #000;
+  background-color: #ffffff87;
+  border-radius: 1em;
+  padding: 0.5em;
 }
 
 /* Background images */
@@ -495,18 +503,15 @@ footer ul li a:hover {
 
    .section-inner1 {
     position: absolute;
-    bottom: 200px;
     left: 200px;
-    padding: 2em;
-    padding-top: 0px;
-    padding-bottom: 8em;
+    top: 150px;
     background-color:rgba(0, 0, 0, 0.404);
     border-radius: 2em;
   }
    
    .contact-clean {
     position:relative;
-    top: 5em;
+    padding: 1em;
   }
   
   .contact-clean h2 {
