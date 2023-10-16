@@ -138,3 +138,9 @@ function verifierFormulaire2() {
       messageErreur.classList.add("invisible");
     }
 }
+
+/******************************FORMULAIRE REGISTER**************************************/
+
+function verifierFormulaire3() {
+  window.location.href = "index.html"; // renvoie à la page index.html
+}

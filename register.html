@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />  
     <script src="js/script.js" defer></script>
-    <title>Running - Sign In</title>
+    <title>Running - Register</title>
 </head>
 
 <body>
@@ -66,17 +66,65 @@
     <section class="section-a">
       <div class="section-inner1">
         <!-- <h2 class="text-center">sign up&nbsp;&nbsp;</h2> -->
-        <div class="contact-clean">
-            <form method="post">
-                <h2 class="text-center">sign in&nbsp;&nbsp;</h2>
-                <div class="form-group"><input class="form-control" type="email" name="email" id="email" placeholder="Email"></div>
-                <div class="form-group"><input class="form-control" type="password" name="password" id="mdp" placeholder="password">
-                  <small class="text-danger invisible">Veuillez enter un mot de pass de longueur minimum 8 caractères</small>
+        <div class="contact-clean1">
+          <form method="post">
+                <h2 class="text-center">Register&nbsp;&nbsp;</h2>
+                <label for="course">Sélectionnez une course :</label>
+                <select id="course" name="course">
+                    <option value="course1">Course 1</option>
+                    <option value="course2">Course 2</option>
+                    <option value="course3">Course 3</option>
+                </select>
+        
+                <div id="infosCourse">
+                    <h3>Informations sur la course :</h3>
+                    <p id="emplacement">Emplacement : </p>
+                    <p id="jour">Jour : </p>
+                    <p id="horaire">Horaire : </p>
+                    <p id="km">Distance à parcourir : </p>
                 </div>
+        
                 <div class="form-group">
-                    <button class="btn btn-primary" type="button" onClick=verifierFormulaire2()>send </button>
-                </div>
+                  <button class="btn btn-primary1" type="button" onClick=verifierFormulaire3()>send </button>
+              </div>            
             </form>
+        
+            <script>
+                const courseInfos = {
+                    course1: {
+                        emplacement: "Paris 12",
+                        jour: "Lundi",
+                        horaire: "10h00",
+                        km: "5 km"
+                    },
+                    course2: {
+                        emplacement: "Paris 9",
+                        jour: "Mercredi",
+                        horaire: "15h30",
+                        km: "10 km"
+                    },
+                    course3: {
+                        emplacement: "Paris 2",
+                        jour: "Samedi",
+                        horaire: "09h00",
+                        km: "8 km"
+                    }
+                };
+        
+                const courseSelect = document.getElementById('course');
+                const emplacement = document.getElementById('emplacement');
+                const jour = document.getElementById('jour');
+                const horaire = document.getElementById('horaire');
+                const km = document.getElementById('km');
+        
+                courseSelect.addEventListener('change', () => {
+                    const selectedCourse = courseSelect.value;
+                    emplacement.textContent = 'Emplacement : ' + courseInfos[selectedCourse].emplacement;
+                    jour.textContent = 'Jour : ' + courseInfos[selectedCourse].jour;
+                    horaire.textContent = 'Horaire : ' + courseInfos[selectedCourse].horaire;
+                    km.textContent = 'Distance à parcourir : ' + courseInfos[selectedCourse].km;
+                });
+            </script>     
         </div>
       </div>
     </section>

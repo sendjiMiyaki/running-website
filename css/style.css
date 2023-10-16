@@ -101,7 +101,7 @@ section {
 
 .section-inner {
   position: absolute;
-  top: 300px;
+  top: 230px;
   left: 150px;
   max-width: 560px;
   padding: 2em;
@@ -124,6 +124,15 @@ section {
   animation-fill-mode: both; /* Stop from showing at start*/
 }
 
+.section-inner p {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: lowercase;
+  color: #ffffff95;
+  font-size: small;
+  font-weight: lighter;
+  margin-bottom: 2em;
+}
+
 .section-inner a {
   animation: fadeInUp 0.5s ease-in-out 0.4s;
   animation-fill-mode: both; /* Stop from showing at start*/
@@ -131,10 +140,11 @@ section {
 
 .hover span {
   font-family: sans-serif;
-  color: #000;
+  font-weight: bold;
+  color: #000000a1;
   background-color: #ffffff87;
-  border-radius: 1em;
-  padding: 0.5em;
+  border-radius: 2em;
+  padding: 1em;
 }
 
 /* Background images */
@@ -154,6 +164,7 @@ section {
   padding: 15px 50px;
   margin-top: 10px;
   border: 2px solid #fff;
+  border-radius: 2em;
   text-transform: uppercase;
   font-weight: bold;
   overflow: hidden;
@@ -517,7 +528,7 @@ footer ul li a:hover {
   .contact-clean h2 {
     margin-top: 5px;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.5em;
     margin-bottom: 36px;
     color: inherit;
   }
@@ -571,10 +582,10 @@ footer ul li a:hover {
 
 
 .contact-clean form .btn-primary {
-  background-color: #5a5a5a !important;
+  background-color: #ffffff !important;
   border-radius: 2em;
   margin-top: 15px;
-  color: #ffffff;
+  color: #000000;
 }
 
 .btn:not(:disabled):not(.disabled) {
@@ -590,7 +601,7 @@ footer ul li a:hover {
   opacity: 0.7;
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 13px;
+  font-size: 15px;
   letter-spacing: 0.4px;
   line-height: 1;
   outline: none !important;
@@ -601,4 +612,28 @@ footer ul li a:hover {
   max-height: 260px;
   padding-top: 10px;
   resize: vertical;
+}
+
+
+/************************************************Formulaire Register***************************************************/
+
+#course {
+  padding: 0.5em;
+  border-radius: 1em;
+}
+
+#infosCourse {
+  line-height: 2em;
+}
+
+.contact-clean1 {
+  padding: 2em;
+  padding-right: 5em;
+}
+
+.contact-clean form .btn-primary1 {
+  background-color: #ffffff !important;
+  border-radius: 2em;
+  margin-top: 15px;
+  color: #000000;
 }
