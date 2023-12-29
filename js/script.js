@@ -58,6 +58,31 @@ function reset() {
   counters.forEach((counter) => (counter.innerHTML = '0'));
 }
 
+/**********************************SHOW PASSWORD****************************************/
+
+// code issue du 'module-web-2-tptest-sendjiMiyaki'
+
+// afficher ou cacher le mdp quand on clique sur l'image avec l'oeil //
+// img et mdp
+let img = document.getElementById("show-password-image");
+let mdp = document.getElementById("motdepasse");
+
+// état actuel de mdp
+let motDePasseCache = true;
+
+// quand clique sur img
+img.addEventListener("click", function() {
+  if (motDePasseCache) {
+    // si caché : on affiche
+    mdp.type = "text";
+    motDePasseCache = false;
+  } else {
+    // sinon on masque
+    mdp.type = "password";
+    motDePasseCache = true;
+  }
+});
+
 /******************************FORMULAIRE SIGN UP**************************************/
 
 let prenom = document.getElementById("prenom");
@@ -133,6 +158,8 @@ function verifierFormulaire() {
           }
       }
     }
+    console.log(localStorage);
+    window.location.href = "index.html"; // renvoie à la page index.html
 }
 
 /******************************FORMULAIRE SIGN IN -> ("email2" & "mdp2")**************************************/
