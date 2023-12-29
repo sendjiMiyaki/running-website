@@ -117,28 +117,38 @@ function verifierFormulaire() {
     } else if (cocher.checked) {
       age.style.color = "green";
     }
+
+    if (verifierFormulaire) { //si quand on exécute verifierFormulaire ça renvoie True (donc que le formualaire est correct) alors on recupere des infos pour les réutiliser quand l'utilisateur va se connecter (signin)
+      const userInformation = {
+          prenom: prenom.value,
+          nom: nom.value,
+          email: email.value,
+          mdp: mdp.value,
+      };
+    
+      // prenom, nom, email et mdp.value deviennent des 'chaînes JSON' et sont stockés dans 'localStorage'
+      for (const key in userInformation) {
+          if (userInformation[key] !== "") {
+              localStorage.setItem(key, JSON.stringify(userInformation[key]));
+          }
+      }
+    }
 }
 
 /******************************FORMULAIRE SIGN IN -> ("email2" & "mdp2")**************************************/
 
 function verifierFormulaire2() {
-    /*condition : si email.value contient "@"*/
-    if (email.value === "" || !email.value.includes("@")) {
-      email.style.borderColor = "red";
-    } else if (email.value.includes("@")) {
-      email.style.borderColor = "green";
-    }
+  // on récupère les infos qu'on avait stocké dans le 'localStorage'
+  const storedUserInformation = JSON.parse(localStorage.getItem('userInformation'));
 
-    /*condition : mdp > 8 caractères, une majuscule et un caractère spécial sinon affichage de "text-danger invisible"*/
-    if (mdp.value === "" || mdp.value.length < 8 || !mdp.value.match(special) || !mdp.value.match(maj)) {
-      mdp.style.borderColor = "red";
-      messageErreur.classList.remove("invisible");
-    } else if (mdp.value.length >= 8 && mdp.value.match(special) && mdp.value.match(maj)) {
-      mdp.style.borderColor = "green";
-      messageErreur.classList.add("invisible");
-    }
+  // si le localStorage est vide ou que les infos ne correspondent pas => on renvoie vers la page signup
+  if (!storedUserInformation || email.value !== storedUserInformation.email || mdp.value !== storedUserInformation.mdp) {
+      window.location.href = 'signup.html';
+  } else {
+      // sinon on redirige vers la page pour s'incrire à une course
+      window.location.href = 'register.html';
+  }
 }
-
 /******************************FORMULAIRE REGISTER**************************************/
 
 function verifierFormulaire3() {
