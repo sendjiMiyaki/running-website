@@ -60,35 +60,35 @@ function reset() {
 
 /**********************************SHOW PASSWORD****************************************/
 
-// code issue du 'module-web-2-tptest-sendjiMiyaki'
+// // code issue du 'module-web-2-tptest-sendjiMiyaki'
 
-// afficher ou cacher le mdp quand on clique sur l'image avec l'oeil //
-// img et mdp
-let img = document.getElementById("show-password-image");
-let mdp = document.getElementById("motdepasse");
+// // afficher ou cacher le mdp quand on clique sur l'image avec l'oeil //
+// // img et mdp
+// let img = document.getElementById("show-password-image");
+// let mdp = document.getElementById("mdp");
 
-// état actuel de mdp
-let motDePasseCache = true;
+// // état actuel de mdp
+// let motDePasseCache = true;
 
-// quand clique sur img
-img.addEventListener("click", function() {
-  if (motDePasseCache) {
-    // si caché : on affiche
-    mdp.type = "text";
-    motDePasseCache = false;
-  } else {
-    // sinon on masque
-    mdp.type = "password";
-    motDePasseCache = true;
-  }
-});
+// // quand clique sur img
+// img.addEventListener("click", function() {
+//   if (motDePasseCache) {
+//     // si caché : on affiche
+//     mdp.type = "text";
+//     motDePasseCache = false;
+//   } else {
+//     // sinon on masque
+//     mdp.type = "password";
+//     motDePasseCache = true;
+//   }
+// });
 
 /******************************FORMULAIRE SIGN UP**************************************/
 
 let prenom = document.getElementById("prenom");
 let nom = document.getElementById("nom");
 let email = document.getElementById("email");
-let mdp = document.getElementById("mdp");
+// let mdp = document.getElementById("mdp");
 let message = document.getElementById("message");
 
 /*email et mdp conditions*/
@@ -143,7 +143,7 @@ function verifierFormulaire() {
       age.style.color = "green";
     }
 
-    if (verifierFormulaire) { //si quand on exécute verifierFormulaire ça renvoie True (donc que le formualaire est correct) alors on recupere des infos pour les réutiliser quand l'utilisateur va se connecter (signin)
+    if (verifierFormulaire == TRUE) { //si quand on exécute verifierFormulaire ça renvoie True (donc que le formualaire est correct) alors on recupere des infos pour les réutiliser quand l'utilisateur va se connecter (signin)
       const userInformation = {
           prenom: prenom.value,
           nom: nom.value,
@@ -157,9 +157,9 @@ function verifierFormulaire() {
               localStorage.setItem(key, JSON.stringify(userInformation[key]));
           }
       }
+      // console.log(localStorage);
+      // window.location.href = "index.html"; // renvoie à la page index.html
     }
-    console.log(localStorage);
-    window.location.href = "index.html"; // renvoie à la page index.html
 }
 
 /******************************FORMULAIRE SIGN IN -> ("email2" & "mdp2")**************************************/
